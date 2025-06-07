@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
-import { toast } from "@/components/ui/use-toast"
 import { motion } from "framer-motion"
 
 export default function ContactPage() {
@@ -25,20 +24,13 @@ export default function ContactPage() {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!form.name || !form.email || !form.message) {
-      toast({
-        title: "Error",
-        description: "Please fill in all required fields.",
-        variant: "destructive",
-      })
+      alert("Please fill in all required fields.")
       return
     }
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
-      toast({
-        title: "Message sent",
-        description: "Thank you for contacting us. We'll get back soon!",
-      })
+      alert("Thank you for contacting us. We'll get back soon!")
       setForm({ name: "", email: "", subject: "", message: "" })
     }, 1500)
   }
@@ -62,10 +54,7 @@ export default function ContactPage() {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <Label
-              htmlFor="name"
-              className="text-sm font-medium text-gray-700 dark:text-gray-300"
-            >
+            <Label htmlFor="name" className="text-sm font-medium text-gray-700 dark:text-gray-300">
               Name *
             </Label>
             <Input
@@ -80,10 +69,7 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <Label
-              htmlFor="email"
-              className="text-sm font-medium text-gray-700 dark:text-gray-300"
-            >
+            <Label htmlFor="email" className="text-sm font-medium text-gray-700 dark:text-gray-300">
               Email *
             </Label>
             <Input
@@ -99,10 +85,7 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <Label
-              htmlFor="subject"
-              className="text-sm font-medium text-gray-700 dark:text-gray-300"
-            >
+            <Label htmlFor="subject" className="text-sm font-medium text-gray-700 dark:text-gray-300">
               Subject
             </Label>
             <Input
@@ -116,10 +99,7 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <Label
-              htmlFor="message"
-              className="text-sm font-medium text-gray-700 dark:text-gray-300"
-            >
+            <Label htmlFor="message" className="text-sm font-medium text-gray-700 dark:text-gray-300">
               Message *
             </Label>
             <Textarea

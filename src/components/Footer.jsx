@@ -2,7 +2,6 @@
 
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { toast } from "@/components/ui/use-toast"
 import { motion } from "framer-motion"
 import { Instagram, Twitter, Facebook, Mail, MapPin, Phone } from "lucide-react"
 import Link from "next/link"
@@ -15,20 +14,13 @@ export default function Footer() {
   const handleNewsletterSubmit = (e) => {
     e.preventDefault()
     if (!email) {
-      toast({
-        title: "Error",
-        description: "Please enter a valid email address.",
-        variant: "destructive",
-      })
+      alert("Please enter a valid email address.")
       return
     }
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
-      toast({
-        title: "Subscribed!",
-        description: "Thank you for subscribing to our newsletter!",
-      })
+      alert("Thank you for subscribing to our newsletter!")
       setEmail("")
     }, 1000)
   }
@@ -54,28 +46,13 @@ export default function Footer() {
               Elevate your style with premium fashion and accessories for the modern world.
             </p>
             <div className="flex gap-4">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-              >
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
                 <Instagram className="w-6 h-6" />
               </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-              >
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
                 <Twitter className="w-6 h-6" />
               </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-              >
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
                 <Facebook className="w-6 h-6" />
               </a>
             </div>
@@ -92,38 +69,10 @@ export default function Footer() {
               Quick Links
             </h3>
             <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-              <li>
-                <Link
-                  href="/products"
-                  className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                >
-                  Products
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                >
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/faq"
-                  className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-                >
-                  FAQ
-                </Link>
-              </li>
+              <li><Link href="/products" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Products</Link></li>
+              <li><Link href="/about" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">About Us</Link></li>
+              <li><Link href="/contact" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact</Link></li>
+              <li><Link href="/faq" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">FAQ</Link></li>
             </ul>
           </motion.div>
 
@@ -138,18 +87,9 @@ export default function Footer() {
               Contact Us
             </h3>
             <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-              <li className="flex items-center gap-2">
-                <Mail className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-                <span>support@shadecommerce.com</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-                <span>+1 (555) 123-4567</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-                <span>123 Style St, Fashion City, USA</span>
-              </li>
+              <li className="flex items-center gap-2"><Mail className="w-5 h-5 text-indigo-600 dark:text-indigo-400" /><span>support@shadecommerce.com</span></li>
+              <li className="flex items-center gap-2"><Phone className="w-5 h-5 text-indigo-600 dark:text-indigo-400" /><span>+1 (555) 123-4567</span></li>
+              <li className="flex items-center gap-2"><MapPin className="w-5 h-5 text-indigo-600 dark:text-indigo-400" /><span>123 Style St, Fashion City, USA</span></li>
             </ul>
           </motion.div>
 
@@ -192,22 +132,10 @@ export default function Footer() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700 text-center text-sm text-gray-600 dark:text-gray-400"
         >
-          <p>
-            © {new Date().getFullYear()} ShadeCommerce. All rights reserved.
-          </p>
+          <p>© {new Date().getFullYear()} ShadeCommerce. All rights reserved.</p>
           <div className="mt-2 flex justify-center gap-4">
-            <Link
-              href="/privacy"
-              className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms"
-              className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-            >
-              Terms of Service
-            </Link>
+            <Link href="/privacy" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Terms of Service</Link>
           </div>
         </motion.div>
       </div>

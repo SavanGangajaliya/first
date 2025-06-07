@@ -13,7 +13,6 @@ import {
 import { Input } from "@/components/ui/input"
 import { Switch } from "@/components/ui/switch"
 import { Label } from "@/components/ui/label"
-import { toast } from "@/components/ui/use-toast"
 
 export default function NewsletterModal() {
   const [email, setEmail] = useState("")
@@ -22,20 +21,13 @@ export default function NewsletterModal() {
 
   const handleSubmit = () => {
     if (!email) {
-      toast({
-        title: "Email required",
-        description: "Please enter a valid email.",
-        variant: "destructive",
-      })
+      alert("Please enter a valid email.")
       return
     }
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
-      toast({
-        title: "Subscribed!",
-        description: `Thanks for subscribing, ${email}.`,
-      })
+      alert(`Thanks for subscribing, ${email}.`)
       setEmail("")
     }, 1500)
   }

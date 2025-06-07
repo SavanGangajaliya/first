@@ -1,4 +1,3 @@
-// app/account/page.jsx
 "use client"
 
 import { useState } from "react"
@@ -7,7 +6,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
-import { toast } from "@/components/ui/use-toast"
 import { Card, CardContent } from "@/components/ui/card"
 import { Table, TableHeader, TableRow, TableCell, TableBody, TableHead } from "@/components/ui/table"
 
@@ -16,7 +14,7 @@ export default function AccountPage() {
   const [userData, setUserData] = useState({
     name: "Savan Gangajaliya",
     email: "savan@example.com",
-    phone: "9876543210",
+    phone: "9574884532",
   })
 
   const handleImageChange = (e) => {
@@ -30,10 +28,8 @@ export default function AccountPage() {
   }
 
   const handleSave = () => {
-    toast({
-      title: "Profile updated",
-      description: "Your changes have been saved.",
-    })
+    // Save logic goes here (toast removed)
+    console.log("User data saved:", userData)
   }
 
   return (

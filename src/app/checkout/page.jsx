@@ -1,4 +1,3 @@
-// app/checkout/page.jsx
 "use client"
 
 import { useState } from "react"
@@ -7,21 +6,16 @@ import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@/components/ui/select"
-import { useToast } from "@/components/ui/use-toast"
 import { Card, CardContent } from "@/components/ui/card"
 
 const CheckoutPage = () => {
     const [loading, setLoading] = useState(false)
-    const toast = useToast()
 
     const handleCheckout = () => {
         setLoading(true)
         setTimeout(() => {
             setLoading(false)
-            toast({
-                title: "Order Placed",
-                description: "Your order has been successfully submitted!",
-            })
+            console.log("Order placed") // Toast removed, optional: replace with your logic
         }, 1500)
     }
 
